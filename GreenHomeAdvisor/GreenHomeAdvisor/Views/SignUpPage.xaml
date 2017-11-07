@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GreenHomeAdvisor.Views.SignUpPage">
+    <ScrollView>
+        <StackLayout BackgroundColor="White">
+            <Label Text="Account Information" TextColor="Black" Font="Bold, 20" />
+            <Label Text="Username" TextColor="Black" Font="16"/>
+            <Entry x:Name="usernameEntry" Placeholder="username" PlaceholderColor="Gray"/>
+            <Label Text="Password" TextColor="Black" Font="16"/>
+            <Entry x:Name="passwordEntry" IsPassword="True" Placeholder="password" PlaceholderColor="Gray" />
+            <Label Text="Confirm Password" TextColor="Black" Font="16"/>
+            <Entry x:Name="passwordSecondEntry" IsPassword="True" Placeholder="confirm" PlaceholderColor="Gray"/>
+
+            <Label Text="Personal Information" TextColor="Black" Font="Bold, 20" />
+            <Label Text="First Name" TextColor="Black" Font="16"/>
+            <Entry x:Name="fNameEntry" Placeholder="First Name" PlaceholderColor="Gray" />
+            <Label Text="Last Name" TextColor="Black" Font="16"/>
+            <Entry x:Name="lNameEntry" Placeholder="Last Name" PlaceholderColor="Gray" />
+            <Label Text="E-mail Address" TextColor="Black" Font="16"/>
+            <Entry x:Name="emailEntry" Placeholder="example@gmail.com" PlaceholderColor="Gray"/>
+
+            <Label Text="Address Information" TextColor="Black" Font="Bold, 20"/>
+            <Label Text="Street" TextColor="Black" Font="16" />
+            <Entry x:Name="streetEntry" Placeholder="Street" PlaceholderColor="Gray" />
+            <Label Text="City" TextColor="Black" Font="16"/>
+            <Entry x:Name="cityEntry" Placeholder="City" PlaceholderColor="Gray" />
+            <Label Text="State" TextColor="Black" Font="16"/>
+            <Entry x:Name="stateEntry" Placeholder="State" PlaceholderColor="Gray" />
+            <Label Text="ZIP Code" TextColor="Black" Font="16"/>
+            <Entry x:Name="zipEntry" Placeholder="ZIP Code (Example: 04281)" PlaceholderColor="Gray" />
+            
+            
+            <Button Text="Submit" TextColor="White" BackgroundColor="Green" BorderColor="Black" />
+            <Button Text="Cancel" TextColor="White" BackgroundColor="Red" BorderColor="Black" />
+
+        </StackLayout>
+    </ScrollView>    
+    
+</ContentPage>

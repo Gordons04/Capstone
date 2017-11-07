@@ -13,7 +13,6 @@ namespace GreenHomeAdvisor
     {
         public static int ScreenWidth;
         public static int ScreenHeight;
-        public static Color BankBlue = Color.FromHex("#127ac7");
 
 
         static string AppName = "GreenHomeAdvisor";
@@ -58,6 +57,17 @@ namespace GreenHomeAdvisor
             loginButton.TextColor = Color.White;
 
             loginButton.Clicked += OnLoginButtonClicked;
+
+            var signupButton = new Button
+            {
+                Text = "Setup",
+            };
+
+            signupButton.BackgroundColor = Color.Green;
+            signupButton.TextColor = Color.White;
+
+            signupButton.Clicked += OnSetupButtonClicked;
+
             //var logo = new Image { Aspect = Aspect.AspectFit };
             //logo.Source = ImageSource.FromFile("logo.jpg");
 
@@ -84,12 +94,18 @@ namespace GreenHomeAdvisor
                             passwordEntry,
                             loadingWheel,
                             loginButton,
+                            signupButton,
                             messageLabel
                     }
                 }
             };
 
             MainPage = content;
+        }
+
+        private void OnSetupButtonClicked(object sender, EventArgs e)
+        {
+            MainPage = new SignUpPage();
         }
 
         private void OnLoginButtonClicked(object sender, EventArgs e)
