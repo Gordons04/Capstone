@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GreenHomeAdvisor.Views.LoginPage">
+    <StackLayout VerticalOptions="Center" Padding="40,0,40,0">
+        <Label x:Name="signInLabel" Text="Sign In" FontAttributes="Bold" FontSize="Large" Margin="0,80,0,20" />
+        <Label Text="Username:" />
+        <Entry x:Name="usernameEntry" Placeholder="Username" PlaceholderColor="Gray" />
+        <Label Text="Password:" />
+        <Entry x:Name="passwordEntry" Placeholder="Password" PlaceholderColor="Gray" />
+        <ActivityIndicator x:Name="loadingWheel" Color="Green" />
+        <Button x:Name="LoginButton" Text="Login" Clicked="LoginButtonClicked" />
+        <Button x:Name="SignUpButton" Text="Signup" Clicked="SignUpButtonClicked" />
+
+
+    </StackLayout>
+</ContentPage>
