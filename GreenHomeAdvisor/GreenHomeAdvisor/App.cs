@@ -1,4 +1,5 @@
 ﻿using GreenHomeAdvisor.Database;
+using GreenHomeAdvisor.Models;
 using GreenHomeAdvisor.ViewModels;
 using GreenHomeAdvisor.Views;
 using System;
@@ -31,6 +32,7 @@ namespace GreenHomeAdvisor
         // https://wolfprogrammer.com/2016/07/22/navigation-using-mvvm-light/
         public static NavigationPage NavigationPage { get; set; }
         public static MainPage RootPage;
+        private static bool noInterShow;
 
         public static bool MenuIsPresented
         {
@@ -45,17 +47,6 @@ namespace GreenHomeAdvisor
 
         }
         // *********************************************************************
-
-
-        public static UserDatabaseController userDatabase()
-        {
-            get{
-                if (userDatabase == null)
-                {
-                    userDatabase = new UserDatabaseController();
-                }
-            }
-        }
 
 
         public App()    // contains login button password field
@@ -154,5 +145,41 @@ namespace GreenHomeAdvisor
 
 
         //    }
+        public static UserDatabaseController UserDatabase
+        {
+            get
+            {
+                if(userDatabase == null)
+                {
+                    userDatabase = new UserDatabaseController();
+                }
+                return userDatabase;
+            }
+        }
+
+        public static TokenDatabaseController TokenDatabase
+        {
+            get
+            {
+                if (tokenDatabase == null)
+                {
+                    tokenDatabase = new TokenDatabaseController();
+                }
+                return tokenDatabase;
+            }
+        }
+
+        //Internet Connection Functions Below
+        public static bool CheckInternetConnection()
+        {
+            var networkConnection = DependencyService.Get<initNetworkConnection>();
+            networkConnection.CheckNetworkConnection();
+            if (!networkConnection.IsConnected)
+            {
+                return false;
+            }
+            return true;
+        }
+
     }
 }

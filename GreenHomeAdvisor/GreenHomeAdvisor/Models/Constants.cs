@@ -13,5 +13,13 @@ namespace GreenHomeAdvisor.Models
         public static Color buttonTextColor = Color.White;
 
         public static Color mainTextColor = Color.FromHex("#12ce22");
+
+
+        //Error Handling 
+        public static string NoInternetText = "No valid internet connection detected, please reconnect.";
+        public static string WrongLoginText = "Invalid username or password, please try again.";
+
+
+        //API URL's
     }
 }

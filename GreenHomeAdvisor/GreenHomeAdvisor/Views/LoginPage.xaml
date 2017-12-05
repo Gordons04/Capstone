@@ -11,6 +11,7 @@
         <ActivityIndicator x:Name="loadingWheel" Color="Green" />
         <Button x:Name="LoginButton" Text="Login" Clicked="LoginButtonClicked" />
         <Button x:Name="SignUpButton" Text="Signup" Clicked="SignUpButtonClicked" />
+        <Label x:Name="StatusLabel" TextColor="Red" />
 
 
     </StackLayout>

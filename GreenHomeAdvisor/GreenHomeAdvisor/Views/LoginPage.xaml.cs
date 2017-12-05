@@ -33,18 +33,20 @@ namespace GreenHomeAdvisor.Views
             loadingWheel.IsRunning = true;
             loadingWheel.IsVisible = false;
 
-            usernameEntry.Completed += (s, e) => passwordEntry.Focus();
+            usernameEntry.Completed += (s, e) => passwordEntry.Focus();     //Easy navigation through fields
             passwordEntry.Completed += (s, e) => LoginButtonClicked(s, e);
         }
 
 
         private void LoginButtonClicked(object sender, EventArgs e)     //Login Routine
         {
+            StatusLabel.Text = null;        //Reset error message
             loadingWheel.IsVisible = true;
             User user = new User(usernameEntry.Text, passwordEntry.Text);
             if (user.checkCredentials())
             {
                 DisplayAlert("Login Success", "Login Successful", "Try Again");
+                App.UserDatabase.saveUser(user);                                   //Save user to DB when credentials are correct
                 loadingWheel.IsVisible = false;
                 //var menuPage = new MenuPage();
                 //App.NavigationPage = new NavigationPage(new HomeViewPage());
@@ -54,9 +56,15 @@ namespace GreenHomeAdvisor.Views
                 //MainPage = App.RootPage;
 
             }
-            else
+            else if (!App.CheckInternetConnection())        //Bad internet Connection
             {
-                DisplayAlert("Login Failure", "Username or password was incorrect", "Try Again");
+                StatusLabel.Text = Constants.NoInternetText;
+                loadingWheel.IsVisible = false;
+                passwordEntry.Text = string.Empty;
+            }
+            else                                           //Bad Username/Password
+            { 
+                StatusLabel.Text = Constants.WrongLoginText;
                 loadingWheel.IsVisible = false;
                 passwordEntry.Text = string.Empty;
             }
