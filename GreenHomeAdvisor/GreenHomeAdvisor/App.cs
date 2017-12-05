@@ -1,6 +1,5 @@
 ﻿using GreenHomeAdvisor.Database;
 using GreenHomeAdvisor.Models;
-using GreenHomeAdvisor.ViewModels;
 using GreenHomeAdvisor.Views;
 using System;
 using System.Collections.Generic;
@@ -29,23 +28,23 @@ namespace GreenHomeAdvisor
 
         // *********************************************************************
         // TODO: wrap in a global Navigation Service (for example purposes only)
-        // https://wolfprogrammer.com/2016/07/22/navigation-using-mvvm-light/
-        public static NavigationPage NavigationPage { get; set; }
-        public static MainPage RootPage;
-        private static bool noInterShow;
+        //// https://wolfprogrammer.com/2016/07/22/navigation-using-mvvm-light/
+        //public static NavigationPage NavigationPage { get; set; }
+        //public static MainPage RootPage;
+        //private static bool noInterShow;
 
-        public static bool MenuIsPresented
-        {
-            get
-            {
-                return RootPage.IsPresented;    //provide access to the value a variable holds
-            }
-            set
-            {
-                RootPage.IsPresented = value; // assign values to the variables of the objects
-            }
+        //public static bool MenuIsPresented
+        //{
+        //    get
+        //    {
+        //        return RootPage.IsPresented;    //provide access to the value a variable holds
+        //    }
+        //    set
+        //    {
+        //        RootPage.IsPresented = value; // assign values to the variables of the objects
+        //    }
 
-        }
+        //}
         // *********************************************************************
 
 

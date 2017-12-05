@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace GreenHomeAdvisor.Views
+namespace GreenHomeAdvisor.Views.Screens
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SettingsPage : ContentPage
+    public partial class StatisticsPage : ContentPage
     {
-        public SettingsPage()
+        public StatisticsPage()
         {
             InitializeComponent();
         }

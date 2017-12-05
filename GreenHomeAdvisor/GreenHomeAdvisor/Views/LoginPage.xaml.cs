@@ -1,5 +1,7 @@
 ﻿using GreenHomeAdvisor.Entity;
 using GreenHomeAdvisor.Models;
+using GreenHomeAdvisor.Views;
+using GreenHomeAdvisor.Views.Menu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,7 +48,7 @@ namespace GreenHomeAdvisor.Views
 
             if (user.checkCredentials())
             {
-                //DisplayAlert("Login Success", "Login Successful", "Okay");
+                await DisplayAlert("Login Success", "Login Successful", "Okay");
                 var result = new Token();                       //Work around: here we will impliment a token API call
                 if (result != null)
                 {
@@ -55,18 +57,12 @@ namespace GreenHomeAdvisor.Views
                     loadingWheel.IsVisible = false;   
                     if(Device.OS == TargetPlatform.Android)         //Deals with navigation to homepage on each platform
                     {
-                        Application.Current.MainPage = new NavigationPage(new HomeViewPage());
+                        Application.Current.MainPage = new MasterDetail();
                     }   
                     else if(Device.OS == TargetPlatform.iOS)
                     {
-                        await Navigation.PushAsync(new HomeViewPage()); //Move to home page
+                        await Navigation.PushAsync(new MasterDetail()); //Move to home page
                     }           
-                    //var menuPage = new MenuPage();
-                    //App.NavigationPage = new NavigationPage(new HomeViewPage());
-                    //App.RootPage = new Views.MainPage();
-                    //App.RootPage.Master = menuPage;
-                    //App.RootPage.Detail = App.NavigationPage;
-                    //MainPage = App.RootPage;
                 }
 
             }

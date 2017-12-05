@@ -22,7 +22,11 @@ namespace GreenHomeAdvisor.Entity
         }
         public bool checkCredentials()
         {
-            if(this.Username.Equals("") && this.Password.Equals(""))
+            if(this.Username == null || this.Password == null)
+            {
+                return false;
+            }
+            else if(this.Username.Equals("user") && this.Password.Equals("password"))
             {
                 return true;
             }
