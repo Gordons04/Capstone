@@ -10,8 +10,9 @@
             <Label Text="Password" TextColor="Black" Font="16"/>
             <Entry x:Name="passwordEntry" IsPassword="True" Placeholder="password" PlaceholderColor="Gray" />
             <Label Text="Confirm Password" TextColor="Black" Font="16"/>
-            <Entry x:Name="passwordSecondEntry" IsPassword="True" Placeholder="confirm" PlaceholderColor="Gray"/>
+            <Entry x:Name="passwordSecondEntry" IsPassword="True" Placeholder="confirm password" PlaceholderColor="Gray"/>
 
+            <!--
             <Label Text="Personal Information" TextColor="Black" Font="Bold, 20" />
             <Label Text="First Name" TextColor="Black" Font="16"/>
             <Entry x:Name="fNameEntry" Placeholder="First Name" PlaceholderColor="Gray" />
@@ -19,7 +20,9 @@
             <Entry x:Name="lNameEntry" Placeholder="Last Name" PlaceholderColor="Gray" />
             <Label Text="E-mail Address" TextColor="Black" Font="16"/>
             <Entry x:Name="emailEntry" Placeholder="example@gmail.com" PlaceholderColor="Gray"/>
+            -->
 
+            <!--
             <Label Text="Address Information" TextColor="Black" Font="Bold, 20"/>
             <Label Text="Street" TextColor="Black" Font="16" />
             <Entry x:Name="streetEntry" Placeholder="Street" PlaceholderColor="Gray" />
@@ -29,10 +32,11 @@
             <Entry x:Name="stateEntry" Placeholder="State" PlaceholderColor="Gray" />
             <Label Text="ZIP Code" TextColor="Black" Font="16"/>
             <Entry x:Name="zipEntry" Placeholder="ZIP Code (Example: 04281)" PlaceholderColor="Gray" />
+            -->
             
             
-            <Button Text="Submit" TextColor="White" BackgroundColor="Green" BorderColor="Black" />
-            <Button Text="Cancel" TextColor="White" BackgroundColor="Red" BorderColor="Black" />
+            <Button Text="Submit" TextColor="White" BackgroundColor="Green" BorderColor="Black" Clicked="SubmitButtonClicked" />
+            <Button Text="Cancel" TextColor="White" BackgroundColor="Red" BorderColor="Black" Clicked="CancelButtonClicked" />
 
         </StackLayout>
     </ScrollView>    

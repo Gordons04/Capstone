@@ -36,7 +36,7 @@ namespace GreenHomeAdvisor.Database
 
         }
 
-        public int saveUser(Token token)              //Insert token if database isn't empty else insert
+        public int saveToken(Token token)              //Insert token if database isn't empty else insert
         {
             lock (locker)
             {

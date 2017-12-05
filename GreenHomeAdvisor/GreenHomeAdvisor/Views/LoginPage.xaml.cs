@@ -38,22 +38,36 @@ namespace GreenHomeAdvisor.Views
         }
 
 
-        private void LoginButtonClicked(object sender, EventArgs e)     //Login Routine
+        async void LoginButtonClicked(object sender, EventArgs e)     //Login Routine
         {
             StatusLabel.Text = null;        //Reset error message
             loadingWheel.IsVisible = true;
             User user = new User(usernameEntry.Text, passwordEntry.Text);
+
             if (user.checkCredentials())
             {
-                DisplayAlert("Login Success", "Login Successful", "Try Again");
-                App.UserDatabase.saveUser(user);                                   //Save user to DB when credentials are correct
-                loadingWheel.IsVisible = false;
-                //var menuPage = new MenuPage();
-                //App.NavigationPage = new NavigationPage(new HomeViewPage());
-                //App.RootPage = new Views.MainPage();
-                //App.RootPage.Master = menuPage;
-                //App.RootPage.Detail = App.NavigationPage;
-                //MainPage = App.RootPage;
+                //DisplayAlert("Login Success", "Login Successful", "Okay");
+                var result = new Token();                       //Work around: here we will impliment a token API call
+                if (result != null)
+                {
+                    //App.UserDatabase.saveUser(user);                //Save user to DB when credentials are correct
+                    //App.TokenDatabase.saveToken(result);            //Save token to memory (SQLite db held in .txt file)
+                    loadingWheel.IsVisible = false;   
+                    if(Device.OS == TargetPlatform.Android)         //Deals with navigation to homepage on each platform
+                    {
+                        Application.Current.MainPage = new NavigationPage(new HomeViewPage());
+                    }   
+                    else if(Device.OS == TargetPlatform.iOS)
+                    {
+                        await Navigation.PushAsync(new HomeViewPage()); //Move to home page
+                    }           
+                    //var menuPage = new MenuPage();
+                    //App.NavigationPage = new NavigationPage(new HomeViewPage());
+                    //App.RootPage = new Views.MainPage();
+                    //App.RootPage.Master = menuPage;
+                    //App.RootPage.Detail = App.NavigationPage;
+                    //MainPage = App.RootPage;
+                }
 
             }
             else if (!App.CheckInternetConnection())        //Bad internet Connection
@@ -70,9 +84,16 @@ namespace GreenHomeAdvisor.Views
             }
         }
 
-        private void SignUpButtonClicked(object sender, EventArgs e)
+        async void SignUpButtonClicked(object sender, EventArgs e)      //Deals with the Signup page navigation
         {
-            
+            if (Device.OS == TargetPlatform.Android)                    //Deals with navigation to signup page on each platform
+            {
+                Application.Current.MainPage = new NavigationPage(new SignUpPage());
+            }
+            else if (Device.OS == TargetPlatform.iOS)
+            {
+                await Navigation.PushAsync(new SignUpPage());           //Move to signup page
+            }
 
         }
     }
