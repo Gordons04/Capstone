@@ -17,7 +17,7 @@ namespace GreenHomeAdvisor.Database
 
         public UserDatabaseController()
         {
-            database = DependencyService.Get<initSQLite>().GetConnection();
+            database = DependencyService.Get<ISQLite>().GetConnection();
             database.CreateTable<User>();
         }
         

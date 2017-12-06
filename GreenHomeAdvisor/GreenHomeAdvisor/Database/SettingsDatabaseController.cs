@@ -17,7 +17,7 @@ namespace GreenHomeAdvisor.Database
 
         public SettingsDatabaseController()
         {
-            database = DependencyService.Get<initSQLite>().GetConnection();
+            database = DependencyService.Get<ISQLite>().GetConnection();
             database.CreateTable<Settings>();
         }
 
@@ -36,24 +36,25 @@ namespace GreenHomeAdvisor.Database
             }
         }
 
-        public int SaveSettings(Settings settings)
+        public void SaveSettings(Settings settings)
         {
             lock (locker)
             {
                 if(settings.Id != 0)
                 {
                     database.Update(settings);
-                    return settings.Id;
+                    //return settings.Id;
                 }
                 else
                 {
-                    settings.Id = 0;
-                    return database.Insert(settings);
+                    settings.Id = 1;
+                    database.Insert(settings);
+                    //return database.Insert(settings);
                 }
             }
         }
 
-        public int DeleteToken(int id)
+        public int DeleteSetting(int id)
         {
             lock (locker)
             {

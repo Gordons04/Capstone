@@ -15,6 +15,7 @@ namespace GreenHomeAdvisor.Views.Screens
         public StatisticsPage()
         {
             InitializeComponent();
+            Title = "Consumption Statistics";
         }
     }
 }

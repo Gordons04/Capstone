@@ -16,7 +16,7 @@ namespace GreenHomeAdvisor.Database
 
         public TokenDatabaseController()
         {
-            database = DependencyService.Get<initSQLite>().GetConnection();
+            database = DependencyService.Get<ISQLite>().GetConnection();
             database.CreateTable<Token>();
         }
 

@@ -7,7 +7,7 @@
         <Label Text="Username:" />
         <Entry x:Name="usernameEntry" Placeholder="Username" PlaceholderColor="Gray" />
         <Label Text="Password:" />
-        <Entry x:Name="passwordEntry" Placeholder="Password" PlaceholderColor="Gray" />
+        <Entry x:Name="passwordEntry" Placeholder="Password" PlaceholderColor="Gray" IsPassword="True"/>
         <ActivityIndicator x:Name="loadingWheel" Color="Green" />
         <Button x:Name="LoginButton" Text="Login" Clicked="LoginButtonClicked" />
         <Button x:Name="SignUpButton" Text="Signup" Clicked="SignUpButtonClicked" />

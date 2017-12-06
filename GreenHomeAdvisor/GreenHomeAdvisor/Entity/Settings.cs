@@ -9,7 +9,7 @@ namespace GreenHomeAdvisor.Entity
 {
     public class Settings
     {
-        [PrimaryKey]
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public bool switch1 { get; set; }
         public bool switch2 { get; set; }

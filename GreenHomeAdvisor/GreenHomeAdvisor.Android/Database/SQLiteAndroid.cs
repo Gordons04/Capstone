@@ -19,17 +19,17 @@ using GreenHomeAdvisor.Droid.Database;
 
 namespace GreenHomeAdvisor.Droid.Database
 {
-    public class SQLiteAndroid : initSQLite
+    public class SQLiteAndroid : ISQLite
     {
         public SQLiteAndroid() { }
         public SQLite.SQLiteConnection GetConnection()
         {
-            var sqliteFileName = "Testdb.db3";
+            var sqliteFileName = "database.db3";
             string filePath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             var path = Path.Combine(filePath, sqliteFileName);
-            var conn = new SQLite.SQLiteConnection(path);
+            var connection = new SQLite.SQLiteConnection(path);
 
-            return conn;
+            return connection;
         }
     }
 }

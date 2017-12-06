@@ -8,7 +8,8 @@ namespace GreenHomeAdvisor.Entity
 {
     public class UserInformation
     {
-        public int ID { get; set; }
+       
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
 

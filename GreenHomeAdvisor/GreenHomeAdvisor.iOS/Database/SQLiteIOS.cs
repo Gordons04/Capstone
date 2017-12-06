@@ -14,7 +14,7 @@ using System.IO;
 
 namespace GreenHomeAdvisor.iOS.Database
 {
-    public class SQLiteIOS : initSQLite
+    public class SQLiteIOS : ISQLite
     {
         public SQLiteIOS() { }
         public SQLite.SQLiteConnection GetConnection()

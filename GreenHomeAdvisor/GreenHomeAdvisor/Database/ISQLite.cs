@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GreenHomeAdvisor.Database
 {
-    public interface initSQLite
+    public interface ISQLite
     {
         SQLiteConnection GetConnection();
     }
