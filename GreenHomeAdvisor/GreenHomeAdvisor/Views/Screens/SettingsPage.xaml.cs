@@ -18,6 +18,7 @@ namespace GreenHomeAdvisor.Views.Screens
 
         SwitchCell switchCell1;
         SwitchCell switchCell2;
+        Entry kwhPricing;
 
         public SettingsPage()
         {
@@ -38,6 +39,14 @@ namespace GreenHomeAdvisor.Views.Screens
             //currentUser = App.UserDatabase.getUser();
 
             TableView table;
+
+            kwhPricing = new Entry                  //Setup keyboard for KwH pricing
+            {
+                Placeholder = "Price of KwH: $",
+                PlaceholderColor = Color.Gray,
+                Keyboard = Keyboard.Numeric
+                
+            };
 
             switchCell1 = new SwitchCell            //Setup first switch button in settings
             {
@@ -68,13 +77,15 @@ namespace GreenHomeAdvisor.Views.Screens
                     new TableSection
                     {
                         switchCell1,
-                        switchCell2
+                        switchCell2,
+                        
                     }
                 }
             };
 
             table.VerticalOptions = LayoutOptions.FillAndExpand;
 
+            MainLayout.Children.Add(kwhPricing);
             MainLayout.Children.Add(table);             //Adds the table to the frontend under the mainlayout section
         }
 
@@ -90,6 +101,15 @@ namespace GreenHomeAdvisor.Views.Screens
 
         protected override async void OnDisappearing()      //Handles saving the settings after leaving the settings screen
         {
+
+            string conv = kwhPricing.Text;              //Conversion from Xamarin forms to int
+            if (conv == null || conv.Equals(""))   //If left blank change to 0
+            {
+                conv = "0";
+            }
+            float price = float.Parse(conv);
+            settings.kwhPrice = price;                  //Set the kwh price setting
+
             base.OnDisappearing();
             var action = await DisplayAlert("Settings", "Do you want to save the settings?", "Yes", "Cancel");
             if(action)

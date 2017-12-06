@@ -13,5 +13,6 @@ namespace GreenHomeAdvisor.Entity
         public int Id { get; set; }
         public bool switch1 { get; set; }
         public bool switch2 { get; set; }
+        public float kwhPrice { get; set; }
     }
 }
