@@ -2,4 +2,21 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GreenHomeAdvisor.Views.Screens.SettingsPage">
+
+    <StackLayout Orientation="Vertical">
+        
+        <StackLayout x:Name="MainLayout">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <OnPlatform.iOS>        <!-- Padding for IOS -->  
+                        10,20,10,20
+                    </OnPlatform.iOS>
+                    <OnPlatform.Android>    <!-- Padding for Android --> 
+                        10,0,10,20
+                    </OnPlatform.Android>
+                </OnPlatform>
+            </StackLayout.Padding>
+        </StackLayout>
+        
+    </StackLayout>
 </ContentPage>

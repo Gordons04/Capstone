@@ -48,8 +48,15 @@ namespace GreenHomeAdvisor.Views
 
             if (user.checkCredentials())
             {
-                await DisplayAlert("Login Success", "Login Successful", "Okay");
                 var result = new Token();                       //Work around: here we will impliment a token API call
+                await DisplayAlert("Login Success", "Login Successful", "Okay");
+
+                if (App.SettingsDatabase.GetSettings() == null)
+                {
+                    Settings settings = new Entity.Settings();
+                    App.SettingsDatabase.SaveSettings(settings);
+                }
+
                 if (result != null)
                 {
                     //App.UserDatabase.saveUser(user);                //Save user to DB when credentials are correct

@@ -39,8 +39,10 @@
     <Compile Include="Database\initNetworkConnection.cs" />
     <Compile Include="Database\initSQLite.cs" />
     <Compile Include="Database\RestService.cs" />
+    <Compile Include="Database\SettingsDatabaseController.cs" />
     <Compile Include="Database\TokenDatabaseController.cs" />
     <Compile Include="Database\UserDatabaseController.cs" />
+    <Compile Include="Entity\Settings.cs" />
     <Compile Include="Entity\Token.cs" />
     <Compile Include="Entity\User.cs" />
     <Compile Include="Entity\UserInformation.cs" />
@@ -55,6 +57,9 @@
     </Compile>
     <Compile Include="Views\Menu\MasterPage.xaml.cs">
       <DependentUpon>MasterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Screens\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Screens\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
@@ -146,6 +151,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Screens\SettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Screens\HomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

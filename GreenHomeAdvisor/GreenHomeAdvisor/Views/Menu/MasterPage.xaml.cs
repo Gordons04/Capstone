@@ -26,6 +26,7 @@ namespace GreenHomeAdvisor.Views.Menu
         void SetItems()
         {
             items = new List<MasterMenuItem>();
+            items.Add(new MasterMenuItem("Homepage", Constants.buttonBackgroundColor, typeof(HomePage)));
             items.Add(new MasterMenuItem("Energy Statistics", Constants.buttonBackgroundColor, typeof(StatisticsPage)));
             items.Add(new MasterMenuItem("Settings", Constants.buttonBackgroundColor, typeof(SettingsPage)));
             ListView.ItemsSource = items;
