@@ -36,18 +36,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Database\HomeConsumptionDatabaseController.cs" />
     <Compile Include="Database\initNetworkConnection.cs" />
     <Compile Include="Database\ISQLite.cs" />
     <Compile Include="Database\RestService.cs" />
     <Compile Include="Database\SettingsDatabaseController.cs" />
     <Compile Include="Database\TokenDatabaseController.cs" />
     <Compile Include="Database\UserDatabaseController.cs" />
+    <Compile Include="Entity\HomeConsumption.cs" />
     <Compile Include="Entity\Settings.cs" />
     <Compile Include="Entity\Token.cs" />
     <Compile Include="Entity\User.cs" />
     <Compile Include="Entity\UserInformation.cs" />
     <Compile Include="Models\Constants.cs" />
     <Compile Include="Models\MasterMenuItem.cs" />
+    <Compile Include="Models\StatsMenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>

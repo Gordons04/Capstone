@@ -15,6 +15,7 @@ namespace GreenHomeAdvisor
         static TokenDatabaseController tokenDatabase;
         static UserDatabaseController userDatabase;
         static SettingsDatabaseController settingsDatabase;
+        static HomeConsumptionDatabaseController homeConsumptionDatabase;
 
 
 
@@ -56,6 +57,18 @@ namespace GreenHomeAdvisor
                     settingsDatabase = new SettingsDatabaseController();
                 }
                 return settingsDatabase;
+            }
+        }
+
+        public static HomeConsumptionDatabaseController HomeConsumptionDatabase
+        {
+            get
+            {
+                if (homeConsumptionDatabase == null)
+                {
+                    homeConsumptionDatabase = new HomeConsumptionDatabaseController();
+                }
+                return homeConsumptionDatabase;
             }
         }
 

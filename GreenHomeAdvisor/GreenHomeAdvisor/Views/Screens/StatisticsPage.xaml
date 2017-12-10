@@ -1,78 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GreenHomeAdvisor.Views.Screens.StatisticsPage">
-
-    <Grid x:Name="MainLayout">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="5*"/>
-        </Grid.RowDefinitions>
+             x:Class="GreenHomeAdvisor.Views.Screens.StatisticsPage"
+             Title="Consumption Page">
+    <ContentPage.Content>
+        <Grid x:Name="MainLayout">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
         
-        <StackLayout x:Name="ChartContainer" Grid.Row="0" BackgroundColor="#101110">
-            <Label Text="This area will show the past year's energy consumption" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-        </StackLayout>
+            <StackLayout x:Name="ChartContainer" Grid.Row="0" BackgroundColor="#101110">
+                <Label Text="This area will show the past year's energy consumption" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            </StackLayout>
 
-        <ScrollView Grid.Row="1">
-            <Grid  x:Name="MonthBreakdown" RowSpacing="1" ColumnSpacing="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="260"/>
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+            <ScrollView x:Name="monthContainer" Grid.Row="1">
+                <ListView x:Name="listView" SeparatorVisibility="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid  x:Name="MonthBreakdown" RowSpacing="1" ColumnSpacing="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="260"/>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
 
-                <Label Text="January Consumption:" FontSize="Large" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black" BackgroundColor="#46AF18"/>
-                <Label Text="100 kW-h" FontSize="Large" FontAttributes="Bold" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black"  BackgroundColor="#46AF18" />
+                                    <Button x:Name="month" Grid.Row="0" Grid.Column="0" Text="{Binding Month}" TextColor="White" FontAttributes="Bold" FontSize="Large" BackgroundColor="#46AF18" Clicked="MonthClicked"/>
+                                    <Button x:Name="consumption" Grid.Row="0" Grid.Column="1" Text="{Binding Consumption}" TextColor="White" FontAttributes="Bold" FontSize ="Large" BackgroundColor="#46AF18" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
                 
-                <Label Text="February Consumption:" FontSize="Large" FontAttributes="Bold" Grid.Row="1" Grid.Column="0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black" BackgroundColor="#46AF18"/>
-                <Label Text="110 kW-h" FontSize="Large" FontAttributes="Bold" Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black"  BackgroundColor="#46AF18" />
 
-                <Label Text="March Consumption:" FontSize="Large" FontAttributes="Bold" Grid.Row="2" Grid.Column="0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black" BackgroundColor="#46AF18"/>
-                <Label Text="90 kW-h" FontSize="Large" FontAttributes="Bold" Grid.Row="2" Grid.Column="1" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black"  BackgroundColor="#46AF18" />
+            </ScrollView>
 
-                <Label Text="April Consumption:" FontSize="Large" FontAttributes="Bold" Grid.Row="3" Grid.Column="0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black" BackgroundColor="#46AF18"/>
-                <Label Text="125 kW-h" FontSize="Large" FontAttributes="Bold" Grid.Row="3" Grid.Column="1" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black"  BackgroundColor="#46AF18" />
-
-                <Label Text="May Consumption:" FontSize="Large" FontAttributes="Bold" Grid.Row="4" Grid.Column="0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black" BackgroundColor="#46AF18"/>
-                <Label Text="100 kW-h" FontSize="Large" FontAttributes="Bold" Grid.Row="4" Grid.Column="1" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black"  BackgroundColor="#46AF18" />
-
-                <Label Text="June Consumption:" FontSize="Large" FontAttributes="Bold" Grid.Row="5" Grid.Column="0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black" BackgroundColor="#46AF18"/>
-                <Label Text="105 kW-h" FontSize="Large" FontAttributes="Bold" Grid.Row="5" Grid.Column="1" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black"  BackgroundColor="#46AF18" />
-
-                <Label Text="July Consumption:" FontSize="Large" FontAttributes="Bold" Grid.Row="6" Grid.Column="0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black" BackgroundColor="#46AF18"/>
-                <Label Text="115 kW-h" FontSize="Large" FontAttributes="Bold" Grid.Row="6" Grid.Column="1" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black"  BackgroundColor="#46AF18" />
-
-                <Label Text="August Consumption:" FontSize="Large" FontAttributes="Bold" Grid.Row="7" Grid.Column="0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black" BackgroundColor="#46AF18"/>
-                <Label Text="90 kW-h" FontSize="Large" FontAttributes="Bold" Grid.Row="7" Grid.Column="1" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black"  BackgroundColor="#46AF18" />
-
-                <Label Text="September Consumption:" FontSize="Large" FontAttributes="Bold" Grid.Row="8" Grid.Column="0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black" BackgroundColor="#46AF18"/>
-                <Label Text="98 kW-h" FontSize="Large" FontAttributes="Bold" Grid.Row="8" Grid.Column="1" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black"  BackgroundColor="#46AF18" />
-
-                <Label Text="October Consumption:" FontSize="Large" FontAttributes="Bold" Grid.Row="9" Grid.Column="0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black" BackgroundColor="#46AF18"/>
-                <Label Text="107 kW-h" FontSize="Large" FontAttributes="Bold" Grid.Row="9" Grid.Column="1" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black"  BackgroundColor="#46AF18" />
-
-                <Label Text="November Consumption:" FontSize="Large" FontAttributes="Bold" Grid.Row="10" Grid.Column="0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black" BackgroundColor="#46AF18"/>
-                <Label Text="118 kW-h" FontSize="Large" FontAttributes="Bold" Grid.Row="10" Grid.Column="1" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black"  BackgroundColor="#46AF18" />
-
-                <Label Text="December Consumption:" FontSize="Large" FontAttributes="Bold" Grid.Row="11" Grid.Column="0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black" BackgroundColor="#46AF18"/>
-                <Label Text="124 kW-h" FontSize="Large" FontAttributes="Bold" Grid.Row="11" Grid.Column="1" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" TextColor="Black"  BackgroundColor="#46AF18" />
-
-
-            </Grid>
-        </ScrollView>
-            
-    </Grid>
+        </Grid>
+    </ContentPage.Content>   
 </ContentPage>

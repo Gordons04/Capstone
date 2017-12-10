@@ -1,4 +1,5 @@
 ﻿using GreenHomeAdvisor.Entity;
+using Java.IO;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -37,18 +38,19 @@ namespace GreenHomeAdvisor.Database
 
         }
 
-        public int saveUser(User user)              //Insert user if database isn't empty else insert
+        public void saveUser(User user)              //Insert user if database isn't empty else insert
         {
             lock (locker)
             {
                 if(user.ID != 0)
                 {
                     database.Update(user);
-                    return user.ID;
+                    System.Diagnostics.Debug.WriteLine("{0} updated in the database.", user.Username);
                 }
-                else                                //
+                else
                 {
-                    return database.Insert(user);
+                    database.Insert(user);
+                    System.Diagnostics.Debug.WriteLine("{0} inserted into the database.", user.Username);
                 }
             }
         }

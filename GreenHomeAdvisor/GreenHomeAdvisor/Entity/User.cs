@@ -22,6 +22,8 @@ namespace GreenHomeAdvisor.Entity
         }
         public bool checkCredentials()
         {
+            //ADD API CALL HERE TO CHECK AGAINST DB
+
             if(this.Username == null || this.Password == null)
             {
                 return false;

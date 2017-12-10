@@ -9,10 +9,13 @@ namespace GreenHomeAdvisor.Models
 {
     class Constants
     {
-        public static Color buttonBackgroundColor = Color.FromHex("#12ce22");
+        //Color Pallete Constants
+        public static Color buttonBackgroundColor = Color.FromHex("#46AF18");
         public static Color buttonTextColor = Color.White;
 
-        public static Color mainTextColor = Color.FromHex("#12ce22");
+        public static Color badButtonColor = Color.Red;
+
+        public static Color mainTextColor = Color.FromHex("#46AF18");
 
 
         //Error Handling 

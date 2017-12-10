@@ -103,7 +103,7 @@ namespace GreenHomeAdvisor.Views.Screens
         {
 
             string conv = kwhPricing.Text;              //Conversion from Xamarin forms to int
-            if (conv == null || conv.Equals(""))   //If left blank change to 0
+            if (conv == null || conv.Equals(""))        //If left blank change to 0
             {
                 conv = "0";
             }

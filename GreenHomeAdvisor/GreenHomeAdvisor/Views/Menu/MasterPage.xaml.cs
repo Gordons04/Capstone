@@ -32,9 +32,17 @@ namespace GreenHomeAdvisor.Views.Menu
             ListView.ItemsSource = items;
         }
 
-        //async void OnLogoutClicked(object sender, EventArgs e)
-        //{
-            
-        //}
+        private async void LogoutButtonClicked(object sender, EventArgs e)
+        {
+
+            if (Device.OS == TargetPlatform.Android)                    //Partial Logout Functionality
+            {
+                Application.Current.MainPage = new NavigationPage(new LoginPage());
+            }
+            else if (Device.OS == TargetPlatform.iOS)
+            {
+                await Navigation.PushAsync(new LoginPage());
+            }
+        }
     }
 }

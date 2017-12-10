@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using GreenHomeAdvisor.Entity;
 
 namespace GreenHomeAdvisor.Views
 {
@@ -34,6 +35,10 @@ namespace GreenHomeAdvisor.Views
         async void SubmitButtonClicked(object sender, EventArgs e)
         {
             errorFlag = false;
+            usernameEntry.BackgroundColor = Color.White;
+            passwordEntry.BackgroundColor = Color.White;
+            passwordSecondEntry.BackgroundColor = Color.White;
+
             //if(usernameEntry.Text in DB){           //Put API call into place to call DB for repeat username
             //    await DisplayAlert("Username Taken", "Username already in use, please try again", "Okay");
             //    usernameEntry.Text = null;
@@ -41,19 +46,39 @@ namespace GreenHomeAdvisor.Views
             //    errorFlag = true;
             //}
 
-            if ((passwordEntry.Text != passwordSecondEntry.Text) || (passwordEntry.Text == null || passwordSecondEntry.Text == null))      //Ensure both passwords match
+            if (!passwordEntry.Text.Equals(passwordSecondEntry.Text))       //Passwords don't match
             {
-                await DisplayAlert("Invalid Password", "Passwords do not match or they are both empty, please try again", "Okay");
-                passwordEntry.Text = null;
+                await DisplayAlert("Invalid Password", "Passwords do not match, please try again", "Okay");
+                passwordEntry.Text = "";
                 passwordEntry.BackgroundColor = Color.Red;
                 passwordSecondEntry.Text = null;
                 passwordSecondEntry.BackgroundColor = Color.Red;
                 errorFlag = true;
             }
 
+            if(passwordEntry.Text == null || passwordSecondEntry.Text == null || passwordEntry.Text == "" || passwordSecondEntry.Text == "")    //Password was left blank
+            {
+                await DisplayAlert("Invalid Password", "Password was left blank, please try again", "Okay");
+                passwordEntry.Text = "";
+                passwordEntry.BackgroundColor = Color.Red;
+                passwordSecondEntry.Text = "";
+                passwordSecondEntry.BackgroundColor = Color.Red;
+                errorFlag = true;
+            }
+
+            if (usernameEntry.Text == null || usernameEntry.Text == "")
+            {
+                await DisplayAlert("Invalid Username", "Username can not be left blank, please try again", "Okay");
+                usernameEntry.Text = "";
+                usernameEntry.BackgroundColor = Color.Red;
+                errorFlag = true;
+            }
+
             if(errorFlag != true)               //Check to see if any errors were thrown through the signup process
             {
                 //Save user to database for future login
+                User newUser = new User(usernameEntry.Text, passwordEntry.Text);
+                App.UserDatabase.saveUser(newUser);
 
                 await DisplayAlert("Account Created", "Account was created successfully", "login");
 
