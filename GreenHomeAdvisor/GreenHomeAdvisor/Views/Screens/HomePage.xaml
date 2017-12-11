@@ -3,6 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GreenHomeAdvisor.Views.Screens.HomePage">
 
-    <Label Text="HOME" TextColor="Red" FontSize="Large" />
+    <ScrollView>
+        <Grid x:Name="MainLayout">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout x:Name="headerSection" Grid.Row="0" BackgroundColor="White">
+                <Label Text="Welcome Back!" TextColor="Black" FontSize="Large" />
+                <Label x:Name="displayDate" Text="DisplayDate" TextColor="Black" FontSize="Large" />
+            </StackLayout>
+
+            <StackLayout x:Name="weekSection" Grid.Row="1" BackgroundColor="#101110">
+                <Label Text="A graph with weekly consumption will be shown in a Monday-Sunday format." TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+            </StackLayout>
+
+            <StackLayout x:Name="tipSection" Grid.Row="2" BackgroundColor="White">
+                <Label Text="Tips for a Greener Future: " TextColor="#46AF18" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Start" />
+                <Label Text="@#LK$JSLKDFJASDLKFJASLDKFJALDSKJFALKDSJFALSKDJFALKSDJFLAKSJFALSKDFJALSKDFJALSKDFJASLDFKJASDLFKJASDLKFJASLKFJ" TextColor="#46AF18" HorizontalTextAlignment="Start" />
+            </StackLayout>
+
+
+        </Grid>
+    </ScrollView>
 
 </ContentPage>

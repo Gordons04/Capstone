@@ -15,6 +15,8 @@ namespace GreenHomeAdvisor.Views.Screens
         public HomePage()
         {
             InitializeComponent();
+            DateTime curDate = DateTime.Now;
+            displayDate.Text = curDate.ToString("MMMM dd, yyyy");
         }
     }
 }
